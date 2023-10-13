@@ -1,0 +1,12 @@
+.subGoal-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  flex-basis: 30%; /* 控制每个类型容器的宽度 */
+}
+
+ul {
+  list-style-type:symbols() ;
+  padding: 20px;
+}
+ 
