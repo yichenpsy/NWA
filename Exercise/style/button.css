@@ -1,0 +1,29 @@
+.subscribe-button {
+  background-color: red;
+  color: white;
+  border: none;
+  
+  /* css box model */
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  /* top align */
+  vertical-align: top;
+
+  border-radius: 5px;
+  cursor: pointer;
+  
+  /* !! */
+  transition: opacity 0.5s; 
+}
+
+/* pseudo class: hover, active */
+.subscribe-button:hover {
+  opacity: 0.1;  
+}
+
+.subscribe-button:active {
+  background-color: blue;
+}

@@ -1,0 +1,22 @@
+  /* apply to all */
+p {
+  font-family: Arial;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+  /* limit line length */
+  width: 300px;
+  line-height: 20px;
+  /* remove the bottom margin */
+  margin-bottom: 0;
+}
+
+.span-example {
+  color: red;
+}
+
+.span-example:hover {
+  opacity: 0.1; 
+  }

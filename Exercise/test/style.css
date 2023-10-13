@@ -1,0 +1,20 @@
+
+
+.horizontal-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+.type-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  flex-basis: 30%; /* 控制每个类型容器的宽度 */
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}

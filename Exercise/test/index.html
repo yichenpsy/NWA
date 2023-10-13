@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div class="container" id="selectBeverageTypesPage">
+        <h2>选择饮料种类</h2>
+        <div class="beverage-type-container">
+            <label>
+                <input type="checkbox" class="beverage-type" value="Tea"> Tea
+            </label>
+            <label>
+                <input type="checkbox" class="beverage-type" value="Coffee"> Coffee
+            </label>
+            <label>
+                <input type="checkbox" class="beverage-type" value="Soda"> Soda
+            </label>
+            <label>
+                <input type="checkbox" class="beverage-type" value="Juice"> Juice
+            </label>
+            <label>
+                <input type="checkbox" class="beverage-type" value="Water"> Water
+            </label>
+        </div>
+        <button onclick="showSelectedBeverageTypes()">Next</button>
+    </div>
+
+    <div class="container" id="selectProductsPage" style="display: none;">
+        <h2>选择产品</h2>
+        <button onclick="goBack()">Back</button>
+        <button onclick="resetAndStartOver()">Start Over</button>
+        <div id="selectedBeverageTypes"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

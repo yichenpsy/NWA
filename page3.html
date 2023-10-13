@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>page</title>
+    <link rel="stylesheet" href="style/NWA.css">
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>选择饮料</h2>
+      <div class="box">
+          <label>
+              <input type="checkbox" class="beverage" value="Coffee"> Coffee
+          </label>
+          <label>
+              <input type="checkbox" class="beverage" value="Tea"> Tea
+          </label>
+          <label>
+              <input type="checkbox" class="beverage" value="Soda"> Soda
+          </label>
+      </div>
+      <button onclick="nextPage()">Next</button>
+  </div>
+  <div class="container" id="pricePage" style="display: none;">
+      <h2>价格</h2>
+      <div id="selectedBeverage"></div>
+  </div>
+  <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>page5</title>
+    <link rel="stylesheet" href="style/NWA.css">
+  <style>
+      ul, #myUL {
+        list-style-type: none;
+        }
+
+      .sub_goal_col {
+        display: inline-block;
+        margin-left: 0px;
+        margin-right: 10px;
+        vertical-align: top;
+      }
+
+      /* Create the caret/arrow with a unicode, and style it */
+      .sub_goal_button::before {
+        content: "\25BC";
+        color: black;
+        display: inline-block;
+        margin-right: 6px;
+      }
+
+      /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+      .sub_goal_button_right::before {
+        transform: rotate(270deg);
+      }
+
+      /* Hide the nested list */
+      .nested {
+        display: block;
+        }
+
+      /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+      .deactive {
+      display: none;
+      }
+      
+
+  </style>
+  </head>
+
+  
+  <body>
+    <div class="page_div">
+
+      <!-- instruciton-->
+      <div>
+        <p>
+          Instruction page5
+        </p>
+      </div>
+
+      <!-- tree structure-->
+      <div>
+        <ul id="criterion_tree">
+    
+          <div class="sub_goal_col">
+            <li>
+              <div class="tooltip">
+                <button class="sub_goal_button">Low Price</button>
+                <span class="tooltiptext">This is a tooltip for Low Price.</span>
+              </div>
+            </li>
+          </div>
+  
+          <div class="sub_goal_col">
+            <li>
+              <div class="tooltip">
+                <button class="sub_goal_button">Type of operating system </button>
+                <span class="tooltiptext">This is a tooltip for Type of operating system .</span>
+              </div>
+
+            </li>
+          </div>
+    
+          <div class="sub_goal_col">
+            <li>
+              <div class="tooltip">
+                <button class="sub_goal_button">Memory</button>
+                <span class="tooltiptext">This is a tooltip for Memory.</span>
+              </div>
+              <ul class="nested">
+                <li class="criterion_button">RAM</li>
+                <li class="criterion_button">ROM</li>
+              </ul>
+            </li>
+          </div>
+  
+          <div class="sub_goal_col">
+            <li>
+              <div class="tooltip">
+                <button class="sub_goal_button">Good Basic functions</button>
+                <span class="tooltiptext">This is a tooltip for Good Basic functions.</span>
+              </div>
+              <ul class="nested">
+                <li class="criterion_button">Voice quality</li>
+                <li class="criterion_button">Network sensitivity</li>
+                <li class="criterion_button">Computing power</li>
+                <li class="criterion_button">Localization</li>
+              </ul>
+            </li>
+          </div>
+        </ul>
+
+      </div>
+
+      <!-- onclick="window.location.href='http://127.0.0.1:5500/page1.html';" -->
+      <button class="next_button">
+        Next
+      </button>
+
+      <button class="back_button">
+        Back
+      </button>
+  
+    </div>
+
+    <script>
+      var sub_goal_arr = document.getElementsByClassName("sub_goal_button");
+      var i;
+
+      for(i = 0; i < sub_goal_arr.length; i++) {
+        // console.log(sub_goal_arr[i]);
+        sub_goal_arr[i].addEventListener("click", function() {
+          this.parentElement.querySelector(".nested").classList.toggle("deactive");
+          this.classList.toggle("sub_goal_button_right");
+        });
+      }
+
+    </script>
+  
+  </body>
+
+</html>
