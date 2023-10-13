@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="NWA.css">
+</head>
+<body>
+  <div class="container" id="selectSubGoalPage"> 
+    <h2>page1</h2>
+    <div class="subGoal-container">
+      <label>
+        <input type="checkbox" class="subGoal" value="sg1"> sg1
+      </label>
+      <label>
+        <input type="checkbox" class="subGoal" value="sg2"> sg2
+      </label>
+      <label>
+        <input type="checkbox" class="subGoal" value="sg3"> sg3
+      </label>
+      <label>
+        <input type="checkbox" class="subGoal" value="sg4"> sg4
+      </label>
+      <label>
+        <input type="checkbox" class="subGoal" value="sg5"> sg5
+      </label>
+    </div>
+    <button onclick="showSelectedSubGoal()">Next</button>
+  </div>
+
+  <div class="container" id="selectCriterionPage" style="display: none;">
+    <h2>select criterion</h2>
+    <button onclick="goBack()">Back</button>
+    <div id="selectedSubGoal"></div>
+
+  </div>
+
+  <script src="NWA.js"></script>
+
+</body>
+</html>

@@ -93,5 +93,6 @@ const productData = {
 const relatedProductData = {
     'Green Tea': ['Matcha', 'Pu-erh'],
     'Matcha': ['Matcha Latte', 'Matcha Frappe'],
-    'Pu-erh': ['Pu-erh Loose Leaf', 'Pu-erh Cake']
+    'Pu-erh': ['Pu-erh Loose Leaf', 'Pu-erh Cake'],
+    'Espresso': ['Es1', 'Es2']
 };
