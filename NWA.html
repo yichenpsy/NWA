@@ -3,33 +3,56 @@
 <head>
   <link rel="stylesheet" type="text/css" href="NWA.css">
 </head>
+
 <body>
-  <div class="container" id="selectSubGoalPage"> 
-    <h2>page1</h2>
-    <div class="subGoal-container">
-      <label>
-        <input type="checkbox" class="subGoal" value="sg1"> sg1
+  <div data-page="1" id="welcomePage" class="page" style="display: block;">
+    <h2>Welcome</h2>
+    <p>instruction:</p>
+    <button onclick="nextPage()">Next</button>
+  </div>
+
+  <div data-page="2" id="brokenPage" class="page" >
+    <h2>Senario: broken</h2>
+    <p>instruction:</p>
+    <button onclick="prevPage()">Back</button>
+    <button onclick="nextPage()">Next</button>
+  </div>
+
+  <div data-page="3" id="selectSubGoalPage" class="page" > 
+    <h2>select SubGoal</h2>
+    <div>
+      <label class="selectSubGoal">
+        <input type="checkbox" class="subGoal" value="Low price"> Low price
+        (Not too expensive)
       </label>
-      <label>
-        <input type="checkbox" class="subGoal" value="sg2"> sg2
+      <label class="selectSubGoal">
+        <input type="checkbox" class="subGoal" value="Type of operating system"> Type of operating system
       </label>
-      <label>
-        <input type="checkbox" class="subGoal" value="sg3"> sg3
+      <label class="selectSubGoal">
+        <input type="checkbox" class="subGoal" value="Memory Size"> Memory Size
       </label>
-      <label>
-        <input type="checkbox" class="subGoal" value="sg4"> sg4
+      <label class="selectSubGoal">
+        <input type="checkbox" class="subGoal" value="Good Basic Functions"> Good Basic Functions
       </label>
-      <label>
-        <input type="checkbox" class="subGoal" value="sg5"> sg5
+      <label class="selectSubGoal">
+        <input type="checkbox" class="subGoal" value="Good quality"> Good quality
       </label>
+      <label class="selectSubGoal">
+        <input type="checkbox" class="subGoal" value="Design"> Design
+      </label>
+      <label class="selectSubGoal">
+        <input type="checkbox" class="subGoal" value="Popularity"> Popularity
+      </label>
+
     </div>
+    <button onclick="prevPage()">Back</button>
     <button onclick="showSelectedSubGoal()">Next</button>
   </div>
 
-  <div class="container" id="selectCriterionPage" style="display: none;">
+  <div data-page="4" id="selectCriterionPage" class="page" style="display: none;">
     <h2>select criterion</h2>
-    <button onclick="goBack()">Back</button>
     <div id="selectedSubGoal"></div>
+    <button onclick="prevPage()">Back</button>
 
   </div>
 

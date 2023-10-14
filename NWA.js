@@ -1,10 +1,27 @@
 let selectedSubGoal = [];
 let selectedCriterion = [];
 
-function goBack() {
-    selectSubGoalPage.style.display = 'block';
-    selectCriterionPage.style.display = 'none';
+
+const pages = document.querySelectorAll('.page');
+let currentPage = 0;
+let pageData = {};
+
+function updatePage() {
+    pages.forEach((page, index) => {
+        page.style.display = page.getAttribute('data-page') == currentPage + 1 ? 'block' : 'none';
+    });
 }
+
+function nextPage() {
+    currentPage++;
+    updatePage();
+}
+
+function prevPage() {
+    currentPage--;
+    updatePage();
+}
+
 
 function showSelectedSubGoal() {
     const checkboxes = document.querySelectorAll('.subGoal');
@@ -13,8 +30,7 @@ function showSelectedSubGoal() {
         .map(subGoal => subGoal.value);
 
     if (selectedSubGoal.length > 0) {
-        selectSubGoalPage.style.display = 'none';
-        selectCriterionPage.style.display = 'block';
+        nextPage();
         renderSelectedCriterion();
     } else {
         alert('please select!');
@@ -29,7 +45,9 @@ function renderSelectedCriterion() {
         const subGoalContainer = document.createElement('div');
         subGoalContainer.classList.add('subGoal-container');
 
-        const subGoalHeading = document.createElement('h3');
+        const subGoalHeading = document.createElement('h4');
+        subGoalHeading.style.marginTop = "10px"
+        subGoalHeading.style.marginBottom = "3px"
         subGoalHeading.textContent = subGoal;
 
         const criterionList = document.createElement('ul');
@@ -84,15 +102,17 @@ function handleCriterionChange(event) {
 }
 
 const criterionData = {
-    sg1: ['Green Tea', 'Black Tea', 'Herbal Tea'],
-    sg2: ['Espresso', 'Cappuccino', 'Latte'],
-    sg3: ['Cola', 'Lemon-Lime', 'Orange'],
-    sg4: ['Apple Juice', 'Orange Juice', 'Grape Juice'],
-    sg5: ['Still Water', 'Sparkling Water']
+    "Low price": [],
+    "Type of operating system": [],
+    "Memory Size": ['RAM', 'ROM'],
+    "Good Basic Functions": ['Voice quality', 'Network sensitivity', 'Wifi connection','Computing power', 'Localization'],
+    "Good quality": ['Camera', 'Display','Battery', 'Handling','Stability'],
+    "Design":['Suitable size','Suitable weight', 'Exterior design'],
+    "Popularity":['number of ratings', 'Average customer rating']
 };
 
 const relatedCriterionData = {
-    'Green Tea': ['Matcha', 'Pu-erh'],
-    'Matcha': ['Matcha Latte', 'Matcha Frappe'],
-    'Pu-erh': ['Pu-erh Loose Leaf', 'Pu-erh Cake']
+    'Camera': ['Front Camera', 'Back Camera'],
+
 };
+
