@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .page {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="page" data-page="1" style="display: block;">
+        <h2>页面 1</h2>
+        <input type="text" id="input1" placeholder="输入信息">
+        <button onclick="nextPage()">Next</button>
+    </div>
+
+    <div class="page" data-page="2">
+        <h2>页面 2</h2>
+        <p id="infoDisplay"></p>
+        <button onclick="prevPage()">Back</button>
+        <button onclick="nextPage()">Next</button>
+    </div>
+
+    <script>
+        const pages = document.querySelectorAll('.page');
+        let currentPage = 0;
+        let pageData = {};
+
+        function updatePage() {
+            pages.forEach((page, index) => {
+                page.style.display = page.getAttribute('data-page') == currentPage + 1 ? 'block' : 'none';
+            });
+        }
+
+        function nextPage() {
+            if (currentPage === 0) {
+                const input = document.getElementById('input1');
+                pageData.page1Data = input.value;
+            }
+            currentPage++;
+            updatePage();
+            if (currentPage === 2) {
+                const infoDisplay = document.getElementById('infoDisplay');
+                infoDisplay.textContent = `信息：${pageData.page1Data}`;
+            }
+        }
+
+        function prevPage() {
+            currentPage--;
+            updatePage();
+        }
+
+        updatePage();
+    </script>
+</body>
+</html>

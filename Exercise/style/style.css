@@ -1,11 +1,11 @@
 
 
-.horizontal-container {
+/* .horizontal-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin: 10px 0;
-}
+} */
 
 .type-container {
   border: 1px solid #ccc;

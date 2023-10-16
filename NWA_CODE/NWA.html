@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>NWA</title>
   <link rel="stylesheet" type="text/css" href="NWA.css">
 </head>
 
 <body>
   <div data-page="1" id="welcomePage" class="page" style="display: block;">
     <h2>Welcome</h2>
-    <p>instruction:</p>
+    <p>
+      Welcome to this study! 
+    </p>
+    <p>
+      The goal of this study is to test the usability of a new tool designed to assist people in making purchase decisions. Please follow the instructions to complete an online task.
+    </p>
     <button onclick="nextPage()">Next</button>
   </div>
 
   <div data-page="2" id="brokenPage" class="page" >
-    <h2>Senario: broken</h2>
-    <p>instruction:</p>
+    <h2>Senario</h2>
+    <p>
+      Image that your current cell phone is broken, and now you need to buy a new one. 
+    </p>
+    <img class="broken_pic" src="pic/brokenphone1.jpg">
     <button onclick="prevPage()">Back</button>
     <button onclick="nextPage()">Next</button>
   </div>
