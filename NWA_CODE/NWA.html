@@ -6,6 +6,7 @@
 </head>
 
 <body>
+  <!-- Page 1: Welcome -->
   <div data-page="1" id="welcomePage" class="page" style="display: block;">
     <h2>Welcome</h2>
     <p>
@@ -17,6 +18,7 @@
     <button onclick="nextPage()">Next</button>
   </div>
 
+  <!-- Page 2: Broken -->
   <div data-page="2" id="brokenPage" class="page" >
     <h2>Senario</h2>
     <p>
@@ -27,7 +29,22 @@
     <button onclick="nextPage()">Next</button>
   </div>
 
-  <div data-page="3" id="selectSubGoalPage" class="page" > 
+  <!-- Page 3: Gallery -->
+  <div data-page="3" id="galleryPage" class="page">
+    Gallery of alternative smart phones.
+    <button onclick="prevPage()">Back</button>
+    <button onclick="nextPage()">Next</button>
+  </div>
+                                 
+  <!-- Page 4: Smartphone usage survey -->
+  <div data-page="4" id="surveyPage" class="page">
+    Smartphone usage survey
+    <button onclick="prevPage()">Back</button>
+    <button onclick="nextPage()">Next</button>
+  </div>
+
+  <!-- Page 5: Select sub goals -->
+  <div data-page="5" id="selectSubGoalPage" class="page" > 
     <h2>select SubGoal</h2>
     <div>
       <label class="selectSubGoal">
@@ -52,13 +69,13 @@
       <label class="selectSubGoal">
         <input type="checkbox" class="subGoal" value="Popularity"> Popularity
       </label>
-
     </div>
     <button onclick="prevPage()">Back</button>
     <button onclick="showSelectedSubGoal()">Next</button>
   </div>
 
-  <div data-page="4" id="selectCriterionPage" class="page" style="display: none;">
+  <!--Page 6: Select criterion -->
+  <div data-page="6" id="selectCriterionPage" class="page" style="display: none;">
     <h2>select criterion</h2>
     <div id="selectedSubGoal"></div>
     <button onclick="prevPage()">Back</button>

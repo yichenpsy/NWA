@@ -1,7 +1,22 @@
 let selectedSubGoal = [];
 let selectedCriterion = [];
 
+const criterionData = {
+    "Low price": [],
+    "Type of operating system": [],
+    "Memory Size": ['RAM', 'ROM'],
+    "Good Basic Functions": ['Voice quality', 'Network sensitivity', 'Wifi connection','Computing power', 'Localization'],
+    "Good quality": ['Camera', 'Display','Battery', 'Handling','Stability'],
+    "Design":['Suitable size','Suitable weight', 'Exterior design'],
+    "Popularity":['number of ratings', 'Average customer rating']
+};
 
+const relatedCriterionData = {
+    'Camera': ['Front Camera', 'Back Camera'],
+
+};
+
+// page turn
 const pages = document.querySelectorAll('.page');
 let currentPage = 0;
 let pageData = {};
@@ -22,7 +37,7 @@ function prevPage() {
     updatePage();
 }
 
-
+// Page 6 Select criterion
 function showSelectedSubGoal() {
     const checkboxes = document.querySelectorAll('.subGoal');
     selectedSubGoal = Array.from(checkboxes)
@@ -101,18 +116,5 @@ function handleCriterionChange(event) {
     }
 }
 
-const criterionData = {
-    "Low price": [],
-    "Type of operating system": [],
-    "Memory Size": ['RAM', 'ROM'],
-    "Good Basic Functions": ['Voice quality', 'Network sensitivity', 'Wifi connection','Computing power', 'Localization'],
-    "Good quality": ['Camera', 'Display','Battery', 'Handling','Stability'],
-    "Design":['Suitable size','Suitable weight', 'Exterior design'],
-    "Popularity":['number of ratings', 'Average customer rating']
-};
 
-const relatedCriterionData = {
-    'Camera': ['Front Camera', 'Back Camera'],
-
-};
 
