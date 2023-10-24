@@ -40,36 +40,13 @@
   <div data-page="4" id="surveyPage" class="page">
     Smartphone usage survey
     <button onclick="prevPage()">Back</button>
-    <button onclick="nextPage()">Next</button>
+    <button onclick="displaySubGoal(subGoalData)">Next</button>
   </div>
 
   <!-- Page 5: Select sub goals -->
   <div data-page="5" id="selectSubGoalPage" class="page" > 
     <h2>select SubGoal</h2>
-    <div>
-      <label class="selectSubGoal">
-        <input type="checkbox" class="subGoal" value="Low price"> Low price
-        (Not too expensive)
-      </label>
-      <label class="selectSubGoal">
-        <input type="checkbox" class="subGoal" value="Type of operating system"> Type of operating system
-      </label>
-      <label class="selectSubGoal">
-        <input type="checkbox" class="subGoal" value="Memory Size"> Memory Size
-      </label>
-      <label class="selectSubGoal">
-        <input type="checkbox" class="subGoal" value="Good Basic Functions"> Good Basic Functions
-      </label>
-      <label class="selectSubGoal">
-        <input type="checkbox" class="subGoal" value="Good quality"> Good quality
-      </label>
-      <label class="selectSubGoal">
-        <input type="checkbox" class="subGoal" value="Design"> Design
-      </label>
-      <label class="selectSubGoal">
-        <input type="checkbox" class="subGoal" value="Popularity"> Popularity
-      </label>
-    </div>
+    <div id="subGoalContainer"></div>
     <button onclick="prevPage()">Back</button>
     <button onclick="showSelectedSubGoal()">Next</button>
   </div>

@@ -37,6 +37,38 @@ function prevPage() {
     updatePage();
 }
 
+// page 5 Select subGoal
+
+function displaySubGoal(data) {
+    nextPage();
+    const container = document.getElementById("subGoalContainer"); 
+    container.innerHTML = '';
+
+    for (const subGoal in data) {
+      // 创建一个标题元素来显示标准的名称
+      const label = document.createElement("label");
+      label.className = "selectSubGoal";
+
+      // 创建一个 <input> 元素（复选框）
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.className = "subGoal";
+      input.value = subGoal; 
+
+      label.appendChild(input); 
+      label.appendChild(document.createTextNode(subGoal));
+
+      // 如果有解释性文本，创建新行并添加解释性文本
+      if (subGoalData[subGoal].textExplain) {
+        label.appendChild(document.createElement("br")); // 创建新行
+        label.appendChild(document.createTextNode(subGoalData[subGoal].textExplain)); // 添加解释性文本
+      }
+
+      container.appendChild(label);
+
+    }
+  }
+
 // Page 6 Select criterion
 function showSelectedSubGoal() {
     const checkboxes = document.querySelectorAll('.subGoal');
@@ -85,7 +117,6 @@ function renderSelectedCriterion() {
     });
 }
 
-
 function handleCriterionChange(event) {
     const criterionName = event.target.value;
     if (event.target.checked) {
@@ -116,5 +147,40 @@ function handleCriterionChange(event) {
     }
 }
 
+const subGoalData = {
+    "Low price": {
+      textExplain: "xxxxx",
+    },
 
+    "Memory Size": {
+      textExplain: "xxxx",
+      criteria: {
+        "RAM": {
+          textExplain: "Random Access Memory (RAM) is an important component for the device's performance."
+        },
+        "ROM": {
+          textExplain: "Read-Only Memory (ROM) stores the device's firmware and software."
+        }
+      }
+    },
 
+    "Good quality": {
+      textExplain: "This criterion looks at the overall quality of the product.",
+      Criteria: {
+        "Camera": {
+          textExplain: "Camera quality evaluates the performance and features of the device's camera.",
+          subCriteria: {
+            "Front Camera": {
+              textExplain: "Expian for front Camera"
+            },
+            "Back Camera": {
+              textExplain: "Expian for back Camera"
+            }
+          }
+        },
+        "Display": {
+          textExplain: "good display"
+        }
+      }
+  }
+}
