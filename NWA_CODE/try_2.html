@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Try Gallery</title>
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 5px;
+        justify-content: center;
+        background-color: rgb(235, 235, 235);
+        width: 1000px;
+      }
+
+      .grid-item {
+        background-color: white;
+        text-align: center;
+        max-width: 200px;
+        padding-top: 10px;
+      }
+
+      .gallery-pic {
+        width: 170px;
+        height: 170px;
+        object-fit: contain;
+      }
+
+      .gallery-para {
+        margin: 3px;
+        padding: 0px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="grid-container" id="gallery"></div>
+
+    <script>
+      function populateGallery() {
+        const galleryContainer = document.getElementById("gallery");
+        const imageFolder = "pic/gallery_phone/";
+
+        const imageNames = [
+            "iphone_14.jpg",
+            "iphone_14_pro.jpg",
+            "iphone_14_pro_max.jpg",
+            "iphone_14_plus.jpg",
+            "iphone_SE_2022.jpg",
+            "Samsung_Galaxy_S23_Ultra.jpg",
+            "Samsung_Galaxy_S23.jpg",
+            "Google_pixel_6.jpg",
+            "OPPO_Find X5_Pro.jpg",
+            "Samsung_Galaxy_S22.jpg",
+            "Xiaomi_13_Pro.png",
+            "Google_Pixel_7.jpg",
+            "Google_Pixel_7_Pro.jpg",
+            "Honor_50.jpg",
+            "Nothing_Phone_1.jpg",
+          ];
+
+        imageNames.forEach((imageName) => {
+          const imageSrc = imageFolder + imageName;
+          const imageAlt = imageName.replace(".jpg", "").replace(/_/g, " ");
+          const imageElement = document.createElement("img");
+          imageElement.classList.add("gallery-pic");
+          imageElement.src = imageSrc;
+
+          const paraElement = document.createElement("p");
+          paraElement.classList.add("gallery-para");
+          paraElement.textContent = imageAlt;
+
+          const gridItem = document.createElement("div");
+          gridItem.classList.add("grid-item");
+          gridItem.appendChild(imageElement);
+          gridItem.appendChild(paraElement);
+
+          galleryContainer.appendChild(gridItem);
+        });
+      }
+
+      // Call the function to populate the gallery
+      populateGallery();
+    </script>
+  </body>
+</html>
