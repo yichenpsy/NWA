@@ -28,6 +28,7 @@ function updatePage() {
         if (page.style.display === 'block') {
           currentPageID = page.id;
         }
+        console.log('currentPage:',currentPage,currentPageID);
         // if(currentPageID === 'galleryPage'){
         //   populateGallery();
         // }
@@ -37,13 +38,13 @@ function updatePage() {
 function nextPage() {
     currentPage++;
     updatePage();
-    console.log('currentPage:',currentPage,currentPageID);
+    // console.log('currentPage:',currentPage,currentPageID);
 }
 
 function prevPage() {
     currentPage--;
     updatePage();
-    console.log('currentPage:',currentPage,currentPageID);
+    // console.log('currentPage:',currentPage,currentPageID);
 }
 
 // Page 3 Gallery
