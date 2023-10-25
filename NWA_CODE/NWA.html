@@ -26,12 +26,13 @@
     </p>
     <img class="broken_pic" src="pic/brokenphone1.jpg">
     <button onclick="prevPage()">Back</button>
-    <button onclick="nextPage()">Next</button>
+    <button onclick="populateGallery()">Next</button>
   </div>
 
   <!-- Page 3: Gallery -->
-  <div data-page="3" id="galleryPage" class="page">
-    Gallery of alternative smart phones.
+  <div data-page="3" class="page" id="galleryPage">
+    <p>Gallery of alternative smart phones.</p>
+    <div id="gallery" class="grid-container"></div>
     <button onclick="prevPage()">Back</button>
     <button onclick="nextPage()">Next</button>
   </div>

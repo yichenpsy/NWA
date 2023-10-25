@@ -1,5 +1,6 @@
 let selectedSubGoal = [];
 let selectedCriterion = [];
+let currentPageID;
 
 const criterionData = {
     "Low price": [],
@@ -24,21 +25,79 @@ let pageData = {};
 function updatePage() {
     pages.forEach((page, index) => {
         page.style.display = page.getAttribute('data-page') == currentPage + 1 ? 'block' : 'none';
+        if (page.style.display === 'block') {
+          currentPageID = page.id;
+        }
+        // if(currentPageID === 'galleryPage'){
+        //   populateGallery();
+        // }
     });
 }
 
 function nextPage() {
     currentPage++;
     updatePage();
+    console.log('currentPage:',currentPage,currentPageID);
 }
 
 function prevPage() {
     currentPage--;
     updatePage();
+    console.log('currentPage:',currentPage,currentPageID);
 }
 
-// page 5 Select subGoal
+// Page 3 Gallery
+const folderPath = 'pic/gallery_phone';
+const galleryContainer = document.getElementById('gallery');
 
+function populateGallery() {
+  nextPage();
+  // document.body.innerHTML = '';
+  const galleryContainer = document.getElementById("gallery");
+  const imageFolder = "pic/gallery_phone/";
+
+  galleryContainer.innerHTML = "";
+
+  const imageNames = [
+      "iphone_14.jpg",
+      "iphone_14_pro.jpg",
+      "iphone_14_pro_max.jpg",
+      "iphone_14_plus.jpg",
+      "iphone_SE_2022.jpg",
+      "Samsung_Galaxy_S23_Ultra.jpg",
+      "Samsung_Galaxy_S23.jpg",
+      "Google_pixel_6.jpg",
+      "OPPO_Find X5_Pro.jpg",
+      "Samsung_Galaxy_S22.jpg",
+      "Xiaomi_13_Pro.png",
+      "Google_Pixel_7.jpg",
+      "Google_Pixel_7_Pro.jpg",
+      "Honor_50.jpg",
+      "Nothing_Phone_1.jpg",
+    ];
+
+  imageNames.forEach((imageName) => {
+    const imageSrc = imageFolder + imageName;
+    const imageAlt = imageName.replace(".jpg", "").replace(/_/g, " ");
+    const imageElement = document.createElement("img");
+    imageElement.classList.add("gallery-pic");
+    imageElement.src = imageSrc;
+
+    const paraElement = document.createElement("p");
+    paraElement.classList.add("gallery-para");
+    paraElement.textContent = imageAlt;
+
+    const gridItem = document.createElement("div");
+    gridItem.classList.add("grid-item");
+    gridItem.appendChild(imageElement);
+    gridItem.appendChild(paraElement);
+
+    galleryContainer.appendChild(gridItem);
+  });
+}
+
+
+// page 5 Select subGoal
 function displaySubGoal(data) {
     nextPage();
     const container = document.getElementById("subGoalContainer"); 
