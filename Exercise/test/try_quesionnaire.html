@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <style>
+      .question {
+        margin-bottom: 20px;
+      }
+    </style>
+
+</head>
+<body>
+    <form id="questionnaire-form">
+        <div class="question">
+            <label for="q1">Question 1: What is your name?</label>
+            <input type="text" id="q1" name="name">
+        </div>
+
+        <div class="question">
+            <label for="q2">Question 2: Which programming languages do you know?</label>
+            <input type="checkbox" id="q2a" name="languages" value="HTML">HTML
+            <input type="checkbox" id="q2b" name="languages" value="CSS">CSS
+            <input type="checkbox" id="q2c" name="languages" value="JavaScript">JavaScript
+        </div>
+
+        <div class="question">
+            <label for="q3">Question 3: How satisfied are you with our service?</label>
+            <input type="radio" id="q3a" name="satisfaction" value="satisfied">Satisfied
+            <input type="radio" id="q3b" name="satisfaction" value="neutral">Neutral
+            <input type="radio" id="q3c" name="satisfaction" value="unsatisfied">Unsatisfied
+        </div>
+
+        <button type="submit">Submit</button>
+
+        <script>
+            // JavaScript code to collect and process questionnaire responses
+            document.getElementById("questionnaire-form").addEventListener("submit", function(event) {
+              event.preventDefault();
+
+              // Collect responses
+              const name = document.getElementById("q1").value;
+              const languages = [];
+              document.querySelectorAll('input[name="languages"]:checked').forEach((checkbox) => {
+                  languages.push(checkbox.value);
+              });
+              const satisfaction = document.querySelector('input[name="satisfaction"]:checked').value;
+
+              // Process responses (you can store, send to a server, or perform other actions)
+              console.log("Name: " + name);
+              console.log("Languages: " + languages.join(", "));
+              console.log("Satisfaction: " + satisfaction);
+            });
+
+        </script>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
