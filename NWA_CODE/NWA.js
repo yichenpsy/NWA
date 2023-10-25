@@ -1,5 +1,9 @@
 let selectedSubGoal = [];
 let selectedCriterion = [];
+
+const pages = document.querySelectorAll('.page');
+let currentPage = 1;
+let pageData = {};
 let currentPageID;
 
 const criterionData = {
@@ -18,33 +22,22 @@ const relatedCriterionData = {
 };
 
 // page turn
-const pages = document.querySelectorAll('.page');
-let currentPage = 0;
-let pageData = {};
-
-function updatePage() {
-    pages.forEach((page, index) => {
-        page.style.display = page.getAttribute('data-page') == currentPage + 1 ? 'block' : 'none';
-        if (page.style.display === 'block') {
-          currentPageID = page.id;
-        }
-        console.log('currentPage:',currentPage,currentPageID);
-        // if(currentPageID === 'galleryPage'){
-        //   populateGallery();
-        // }
-    });
-}
-
 function nextPage() {
+    pages.forEach((page, index) => {
+      page.style.display = page.getAttribute('data-page') == currentPage + 1 ? 'block' : 'none';
+      currentPageID = (page.style.display === 'block') ? page.id : currentPageID;
+     });
     currentPage++;
-    updatePage();
-    // console.log('currentPage:',currentPage,currentPageID);
+    console.log('currentPage:',currentPage,currentPageID);
 }
 
 function prevPage() {
-    currentPage--;
-    updatePage();
-    // console.log('currentPage:',currentPage,currentPageID);
+  pages.forEach((page, index) => {
+    page.style.display = page.getAttribute('data-page') == currentPage - 1 ? 'block' : 'none';
+    currentPageID = (page.style.display === 'block') ? page.id : currentPageID;
+   });
+  currentPage--;
+  console.log('currentPage:',currentPage,currentPageID);
 }
 
 // Page 3 Gallery
