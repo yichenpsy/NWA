@@ -99,13 +99,17 @@ function populateGallery() {
 
     galleryContainer.appendChild(gridItem);
   });
+}
 
+function saveSelectedPhone(){
     // save selectedPhone in an array.
-    const checkboxes = document.querySelector('.grid-item');
+    const checkboxes = document.querySelectorAll('.grid-item');
     selectedPhone = Array.from(checkboxes)
-        .filter(phone => phone.checked)
-        .map(phone => phone.value);
+        .filter(phone => phone.querySelector('input').checked)
+        .map(phone => phone.querySelector('input').value);
+    
     console.log(selectedPhone);
+    nextPage();
 }
 
 

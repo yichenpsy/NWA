@@ -31,10 +31,10 @@
 
   <!-- Page 3: Gallery -->
   <div data-page="3" class="page" id="galleryPage">
-    <p>Gallery of alternative smart phones.</p>
+    <p>Gallery of alternative smart phones. Please select 5 to 10 phones that you most interested in.</p>
     <div id="gallery" class="grid-container"></div>
     <button onclick="prevPage()">Back</button>
-    <button onclick="nextPage()">Next</button>
+    <button onclick="saveSelectedPhone()">Next</button>
   </div>
                                  
   <!-- Page 4: Smartphone usage survey -->
@@ -57,8 +57,19 @@
     <h2>select criterion</h2>
     <div id="selectedSubGoal"></div>
     <button onclick="prevPage()">Back</button>
-
+    <button onclick="nextPage()">Next</button>
   </div>
+
+  <!-- Page 7: Goal Tree and operation selected criterion -->
+  <div data-page="7" id="selectCriterionPage" class="page" style="display: none;">
+    <h2>Goal Tree</h2>
+    <div id="selectedSubGoal"></div>
+    <button onclick="prevPage()">Back</button>
+    <button onclick="nextPage()">Next</button>
+  </div>
+
+
+
 
   <script src="NWA.js"></script>
 
