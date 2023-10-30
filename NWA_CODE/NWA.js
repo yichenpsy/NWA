@@ -132,7 +132,7 @@ function displaySubGoal(data) {
       input.value = subGoal; 
 
       label.appendChild(input); 
-      label.appendChild(document.createTextNode(subGoal));
+      label.appendChild(document.createTextNode(subGoalData[subGoal].title));
 
       // If there is explanatory text, create a new line and add the explanatory text
       if (subGoalData[subGoal].textExplain) {
@@ -150,7 +150,7 @@ function showSelectedSubGoal() {
     const checkboxes = document.querySelectorAll('.subGoal');
     selectedSubGoal = Array.from(checkboxes)
         .filter(subGoal => subGoal.checked)
-        .map(subGoal => subGoal.value);
+        .map(subGoal => subGoalData[subGoal.value].title);
         
     console.log(selectedSubGoal)
 
@@ -226,37 +226,46 @@ function handleCriterionChange(event) {
 }
 
 const subGoalData = {
-    "Low price": {
+    sb1: {
+      title: "Low price",
       textExplain: "xxxxx",
     },
 
-    "Memory Size": {
+    sb2: {
+      title: "Memory Size",
       textExplain: "xxxx",
-      criteria: {
-        "RAM": {
+      criterion: {
+        sb2_1: {
+          title: "RAM",
           textExplain: "Random Access Memory (RAM) is an important component for the device's performance."
         },
-        "ROM": {
+        sb2_2: {
+          title: "ROM",
           textExplain: "Read-Only Memory (ROM) stores the device's firmware and software."
         }
       }
     },
 
-    "Good quality": {
+    sb3: {
+      title: "Good quality",
       textExplain: "This criterion looks at the overall quality of the product.",
-      Criteria: {
-        "Camera": {
+      criterion: {
+        sb3_1: {
+          title: "Camera",
           textExplain: "Camera quality evaluates the performance and features of the device's camera.",
-          subCriteria: {
-            "Front Camera": {
+          subCriterion: {
+            sb3_1_1: {
+              title: "Front Camera",
               textExplain: "Expian for front Camera"
             },
-            "Back Camera": {
+            sb3_1_2: {
+              title: "Back Camera",
               textExplain: "Expian for back Camera"
             }
           }
         },
-        "Display": {
+        sb3_2: {
+          title: "Display",
           textExplain: "good display"
         }
       }
