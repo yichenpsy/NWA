@@ -1,10 +1,12 @@
 let selectedSubGoal = [];
 let selectedCriterion = [];
+let selectedPhone = [];
 
 const pages = document.querySelectorAll('.page');
 let currentPage = 1;
 let pageData = {};
 let currentPageID;
+
 
 const criterionData = {
     "Low price": [],
@@ -97,10 +99,18 @@ function populateGallery() {
 
     galleryContainer.appendChild(gridItem);
   });
+
+    // save selectedPhone in an array.
+    const checkboxes = document.querySelector('.grid-item');
+    selectedPhone = Array.from(checkboxes)
+        .filter(phone => phone.checked)
+        .map(phone => phone.value);
+    console.log(selectedPhone);
 }
 
 
 // page 5 Select subGoal
+// input: criterion data
 function displaySubGoal(data) {
     nextPage();
     const container = document.getElementById("subGoalContainer"); 
@@ -128,7 +138,7 @@ function displaySubGoal(data) {
 
       container.appendChild(label);
     }
-  }
+ }
 
 // Page 6 Select criterion
 function showSelectedSubGoal() {
@@ -248,3 +258,5 @@ const subGoalData = {
       }
   }
 }
+
+// Page 7
