@@ -46,18 +46,21 @@ const galleryContainer = document.getElementById('gallery');
 
 function populateGallery() {
   nextPage();
-  // document.body.innerHTML = '';
   const galleryContainer = document.getElementById("gallery");
   const imageFolder = "pic/gallery_phone/";
 
   galleryContainer.innerHTML = "";
 
   const imageNames = [
-      "iphone_14.jpg",
-      "iphone_14_pro.jpg",
-      "iphone_14_pro_max.jpg",
-      "iphone_14_plus.jpg",
-      "iphone_SE_2022.jpg",
+      "iPhone_15.jpg",
+      "iPhone_15_Plus.jpg",
+      "iPhone_15_Pro.jpg",
+      "iPhone_15_Pro_Max.jpg",
+      "iPhone_14.jpg",
+      "iPhone_14_pro.jpg",
+      "iPhone_14_pro_max.jpg",
+      "iPhone_14_plus.jpg",
+      "iPhone_SE_2022.jpg",
       "Samsung_Galaxy_S23_Ultra.jpg",
       "Samsung_Galaxy_S23.jpg",
       "Google_pixel_6.jpg",
@@ -80,11 +83,17 @@ function populateGallery() {
     const paraElement = document.createElement("p");
     paraElement.classList.add("gallery-para");
     paraElement.textContent = imageAlt;
+  
+    // user select phone
+    const input = document.createElement("input");
+    input.type = "checkbox";
+    input.value = imageName; 
 
     const gridItem = document.createElement("div");
     gridItem.classList.add("grid-item");
     gridItem.appendChild(imageElement);
     gridItem.appendChild(paraElement);
+    gridItem.appendChild(input);
 
     galleryContainer.appendChild(gridItem);
   });
@@ -98,11 +107,11 @@ function displaySubGoal(data) {
     container.innerHTML = '';
 
     for (const subGoal in data) {
-      // 创建一个标题元素来显示标准的名称
+      // Create a title element to display the criteria name
       const label = document.createElement("label");
       label.className = "selectSubGoal";
 
-      // 创建一个 <input> 元素（复选框）
+      // Create an <input> element (checkbox)）
       const input = document.createElement("input");
       input.type = "checkbox";
       input.className = "subGoal";
@@ -111,23 +120,25 @@ function displaySubGoal(data) {
       label.appendChild(input); 
       label.appendChild(document.createTextNode(subGoal));
 
-      // 如果有解释性文本，创建新行并添加解释性文本
+      // If there is explanatory text, create a new line and add the explanatory text
       if (subGoalData[subGoal].textExplain) {
-        label.appendChild(document.createElement("br")); // 创建新行
-        label.appendChild(document.createTextNode(subGoalData[subGoal].textExplain)); // 添加解释性文本
+        label.appendChild(document.createElement("br")); // create new line
+        label.appendChild(document.createTextNode(subGoalData[subGoal].textExplain)); // add new explanation
       }
 
       container.appendChild(label);
-
     }
   }
 
 // Page 6 Select criterion
 function showSelectedSubGoal() {
+    // save selectedSubGoal in an array.
     const checkboxes = document.querySelectorAll('.subGoal');
     selectedSubGoal = Array.from(checkboxes)
         .filter(subGoal => subGoal.checked)
         .map(subGoal => subGoal.value);
+        
+    console.log(selectedSubGoal)
 
     if (selectedSubGoal.length > 0) {
         nextPage();
