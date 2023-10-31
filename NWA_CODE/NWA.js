@@ -7,6 +7,52 @@ let currentPage = 1;
 let pageData = {};
 let currentPageID;
 
+const subGoalData = {
+  sb1: {
+    title: "Low price",
+    textExplain: "xxxxx",
+  },
+
+  sb2: {
+    title: "Memory Size",
+    textExplain: "xxxx",
+    criterion: {
+      sb2_1: {
+        title: "RAM",
+        textExplain: "Random Access Memory (RAM) is an important component for the device's performance."
+      },
+      sb2_2: {
+        title: "ROM",
+        textExplain: "Read-Only Memory (ROM) stores the device's firmware and software."
+      }
+    }
+  },
+
+  sb3: {
+    title: "Good quality",
+    textExplain: "This criterion looks at the overall quality of the product.",
+    criterion: {
+      sb3_1: {
+        title: "Camera",
+        textExplain: "Camera quality evaluates the performance and features of the device's camera.",
+        subCriterion: {
+          sb3_1_1: {
+            title: "Front Camera",
+            textExplain: "Expian for front Camera"
+          },
+          sb3_1_2: {
+            title: "Back Camera",
+            textExplain: "Expian for back Camera"
+          }
+        }
+      },
+      sb3_2: {
+        title: "Display",
+        textExplain: "good display"
+      }
+    }
+}
+}
 
 const criterionData = {
     "Low price": [],
@@ -169,7 +215,6 @@ function renderSelectedCriterion() {
     selectedSubGoal.forEach(subGoal => {
         const subGoalContainer = document.createElement('div');
         subGoalContainer.classList.add('subGoal-container');
-        subGoalContainer.style.display = "block";
 
         const subGoalHeading = document.createElement('h4');
         subGoalHeading.style.marginTop = "10px";
@@ -227,51 +272,6 @@ function handleCriterionChange(event) {
     }
 }
 
-const subGoalData = {
-    sb1: {
-      title: "Low price",
-      textExplain: "xxxxx",
-    },
 
-    sb2: {
-      title: "Memory Size",
-      textExplain: "xxxx",
-      criterion: {
-        sb2_1: {
-          title: "RAM",
-          textExplain: "Random Access Memory (RAM) is an important component for the device's performance."
-        },
-        sb2_2: {
-          title: "ROM",
-          textExplain: "Read-Only Memory (ROM) stores the device's firmware and software."
-        }
-      }
-    },
-
-    sb3: {
-      title: "Good quality",
-      textExplain: "This criterion looks at the overall quality of the product.",
-      criterion: {
-        sb3_1: {
-          title: "Camera",
-          textExplain: "Camera quality evaluates the performance and features of the device's camera.",
-          subCriterion: {
-            sb3_1_1: {
-              title: "Front Camera",
-              textExplain: "Expian for front Camera"
-            },
-            sb3_1_2: {
-              title: "Back Camera",
-              textExplain: "Expian for back Camera"
-            }
-          }
-        },
-        sb3_2: {
-          title: "Display",
-          textExplain: "good display"
-        }
-      }
-  }
-}
 
 // Page 7
