@@ -54,25 +54,25 @@ function populateGallery() {
   galleryContainer.innerHTML = "";
 
   const imageNames = [
-      "iPhone_15.jpg",
-      "iPhone_15_Plus.jpg",
-      "iPhone_15_Pro.jpg",
-      "iPhone_15_Pro_Max.jpg",
-      "iPhone_14.jpg",
-      "iPhone_14_pro.jpg",
-      "iPhone_14_pro_max.jpg",
-      "iPhone_14_plus.jpg",
-      "iPhone_SE_2022.jpg",
-      "Samsung_Galaxy_S23_Ultra.jpg",
-      "Samsung_Galaxy_S23.jpg",
-      "Google_pixel_6.jpg",
-      "OPPO_Find X5_Pro.jpg",
-      "Samsung_Galaxy_S22.jpg",
-      "Xiaomi_13_Pro.png",
-      "Google_Pixel_7.jpg",
-      "Google_Pixel_7_Pro.jpg",
-      "Honor_50.jpg",
-      "Nothing_Phone_1.jpg",
+      "iPhone_15_(128_GB).jpg",
+      "iPhone_15_Plus_(128_GB).jpg",
+      "iPhone_15_Pro_(128_GB).jpg",
+      "iPhone_15_Pro_Max_(256_GB).jpg",
+      "iPhone_14_(128_GB).jpg",
+      "iPhone_14_Pro_(128_GB).jpg",
+      "iPhone_14_Pro_Max_(128_GB).jpg",
+      "iPhone_14_Plus_(128_GB).jpg",
+      "iPhone_SE_2022_(64_GB).jpg",
+      "Samsung_Galaxy_S23_(128_GB).jpg",
+      "Samsung_Galaxy_S23_Ultra_(256_GB).jpg",
+      "Samsung_Galaxy_S22_(128_GB).jpg",
+      "OPPO_Find X5_Pro_(256_GB).jpg",
+      "Xiaomi_13_Pro_(256_GB).jpg",
+      "Google_Pixel_7_(128_GB).jpg",
+      "Google_Pixel_7_Pro_(128_GB).jpg",
+      "Google_pixel_6_(128_GB).jpg",
+      "Honor_50_(128_GB).jpg",
+      "Nothing_Phone_1_(128_GB).jpg",
     ];
 
   imageNames.forEach((imageName) => {
@@ -109,13 +109,13 @@ function saveSelectedPhone(){
         .map(phone => phone.querySelector('input').value);
     
     console.log(selectedPhone);
-    nextPage();
 }
 
 
 // page 5 Select subGoal
 // input: criterion data
 function displaySubGoal(data) {
+    saveSelectedPhone();
     nextPage();
     const container = document.getElementById("subGoalContainer"); 
     container.innerHTML = '';
@@ -169,14 +169,16 @@ function renderSelectedCriterion() {
     selectedSubGoal.forEach(subGoal => {
         const subGoalContainer = document.createElement('div');
         subGoalContainer.classList.add('subGoal-container');
+        subGoalContainer.style.display = "block";
 
         const subGoalHeading = document.createElement('h4');
-        subGoalHeading.style.marginTop = "10px"
-        subGoalHeading.style.marginBottom = "3px"
+        subGoalHeading.style.marginTop = "10px";
+        subGoalHeading.style.marginBottom = "3px";
         subGoalHeading.textContent = subGoal;
+        subGoalHeading.classList.add('bordered-heading'); 
 
         const criterionList = document.createElement('ul');
-        const criterion = criterionData[subGoal] || [];
+        const criterion = criterionData[subGoal] || []; ///// Change data !!
 
         criterion.forEach(criterionName => {
             const criterionListItem = document.createElement('li');

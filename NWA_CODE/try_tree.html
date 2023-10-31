@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subgoal Tree</title>
+    <style>
+        .tree-node {
+            margin-left: 20px;
+            width: 100px;
+            padding-top: 1px;
+      
+        }
+
+        .tree-node-criterion {
+            margin-left: 20px;
+            
+        }
+
+        .tree-node-sub-criterion {
+            margin-left: 20px;
+        }
+
+        .leaf-node {
+            border: 2px solid red;
+            padding: 2px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="tree-container" class="tree-container"></div>
+    <script>
+        const subGoalData = {
+            sb1: {
+                title: "Low price",
+                textExplain: "xxxxx",
+            },
+
+            sb2: {
+                title: "Memory Size",
+                textExplain: "xxxx",
+                criterion: {
+                    sb2_1: {
+                        title: "RAM",
+                        textExplain: "Random Access Memory (RAM) is an important component for the device's performance."
+                    },
+                    sb2_2: {
+                        title: "ROM",
+                        textExplain: "Read-Only Memory (ROM) stores the device's firmware and software."
+                    }
+                }
+            },
+
+            sb3: {
+                title: "Good quality",
+                textExplain: "This criterion looks at the overall quality of the product.",
+                criterion: {
+                    sb3_1: {
+                        title: "Camera",
+                        textExplain: "Camera quality evaluates the performance and features of the device's camera.",
+                        subCriterion: {
+                            sb3_1_1: {
+                                title: "Front Camera",
+                                textExplain: "Expian for front Camera"
+                            },
+                            sb3_1_2: {
+                                title: "Back Camera",
+                                textExplain: "Expian for back Camera"
+                            }
+                        }
+                    },
+                    sb3_2: {
+                        title: "Display",
+                        textExplain: "good display"
+                    }
+                }
+            }
+        };
+
+        function renderTree(data, container) {
+            for (const key in data) {
+                const item = data[key];
+                const node = document.createElement("div");
+                node.className = "tree-node";
+
+                const title = document.createElement("h4");
+                title.textContent = item.title;
+                node.appendChild(title);
+
+                if (item.criterion) {
+                    const criterionNode = document.createElement("div");
+                    criterionNode.className = "tree-node-criterion";
+                    renderTree(item.criterion, criterionNode);
+                    node.appendChild(criterionNode);
+                }
+
+                if (item.subCriterion) {
+                    const subCriterionNode = document.createElement("div");
+                    subCriterionNode.className = "tree-node-sub-criterion";
+                    renderTree(item.subCriterion, subCriterionNode);
+                    node.appendChild(subCriterionNode);
+                }
+
+                container.appendChild(node);
+
+                // Check if it's a leaf node and add the 'leaf-node' class
+                if (!item.criterion && !item.subCriterion) {
+                    node.classList.add('leaf-node');
+                }
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const treeContainer = document.getElementById("tree-container");
+            renderTree(subGoalData, treeContainer);
+        });
+    </script>
+</body>
+</html>

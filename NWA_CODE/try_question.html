@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+      .question {
+        margin-bottom: 20px;
+      }
+
+      .question-item-label{
+        width: 150px;
+        background-color: lightgray;
+        display: inline-block;
+        text-align: right;
+        margin-right: 10px;
+      }
+    </style>
+
+</head>
+<body>
+    <form id="questionnaire-form">
+        <div class="question">
+            <label for="q1">Question 1: How important are these main factors to you, when considering buying the new cell phone? </label><br>
+            <label for="cr1" class="question-item-label">title of cr1</label>
+            1<input type="radio" id="cr1_1" name="cr1" value="1">
+            <input type="radio" id="cr1_2" name="cr1" value="2">
+            <input type="radio" id="cr1_3" name="cr1" value="3">
+            <input type="radio" id="cr1_4" name="cr1" value="4">
+            <input type="radio" id="cr1_5" name="cr1" value="5">5
+            <br>
+
+            <label for="cr2" class="question-item-label">titel of cr2xxxxx</label>
+            1<input type="radio" id="cr2_1" name="cr2" value="1">
+            <input type="radio" id="cr2_2" name="cr2" value="2">
+            <input type="radio" id="cr2_3" name="cr2" value="3">
+            <input type="radio" id="cr2_4" name="cr2" value="4">
+            <input type="radio" id="cr2_5" name="cr2" value="5">5
+        </div>
+        <button type="submit">Submit</button>
+
+        <script>
+            // to collect and print out questionnaire responses
+            document.getElementById("questionnaire-form").addEventListener("submit", function(event) {
+              event.preventDefault();
+              const cr1_response = document.querySelector('input[name="cr1"]:checked').value;
+              console.log("cr1: " + cr1_response);
+            });
+
+        </script>
+    </form>
+
+</body>
+</html>

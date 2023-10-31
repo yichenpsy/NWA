@@ -5,7 +5,13 @@
   margin-top: 100px;
   margin-right: 200px;
   width: 900px;
-  border: 0.5px solid #a1a1a1;
+  border: 0.5px solid #fffdfd;
+}
+
+.button-pageTurn{
+  text-align: right;
+  margin-top: 50px;
+  margin-right: 200px;
 }
 
 .page_1{
@@ -23,7 +29,8 @@
   border: 1px solid #ccc;
   padding: 0px;
   margin: 2px;
-  flex-basis: 30%; /* width */
+  width: auto;
+  margin-right: 10px;
 }
 
 ul {
@@ -72,3 +79,44 @@ ul {
   margin: 3px;
   padding: 0px;
 }
+
+.goal-tree{
+  vertical-align: top;
+  display: inline-block;
+  width: 500px;
+  height: 800px;
+  background-color: beige;
+}
+
+.operation-table{
+  display: inline-block;
+  width: 300px;
+  height: 800px;
+  background-color: lightgray;
+}
+
+.question {
+  margin-bottom: 20px;
+}
+
+.question-item-label{
+  width: 150px;
+  background-color: lightgray;
+  display: inline-block;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.bordered-heading {
+  border: 1px solid #000; /* Add border styles here */
+  display: inline-block;
+  padding: 5px; /* Optional padding for the border */
+  background-color: lightgray;
+}
+
+#selectedSubGoal {
+  display: flex;
+  flex-direction: row; /* Arrange items from left to right */
+  flex-wrap: nowrap; /* Prevent wrapping to the next line */
+}
+

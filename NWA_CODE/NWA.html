@@ -15,7 +15,10 @@
     <p>
       The goal of this study is to test the usability of a new tool designed to assist people in making purchase decisions. Please follow the instructions to complete an online task.
     </p>
-    <button onclick="nextPage()">Next</button>
+    <div class="button-pageTurn">
+      <button onclick="nextPage()" >Next</button>
+    </div>
+    
   </div>
 
   <!-- Page 2: Broken -->
@@ -25,49 +28,200 @@
       Image that your current cell phone is broken, and now you need to buy a new one. 
     </p>
     <img class="broken_pic" src="pic/brokenphone1.jpg">
-    <button onclick="prevPage()">Back</button>
-    <button onclick="populateGallery()">Next</button>
+    <div class="button-pageTurn">
+      <button onclick="prevPage()">Back</button>
+      <button onclick="nextPage()">Next</button>
+    </div>
   </div>
 
-  <!-- Page 3: Gallery -->
-  <div data-page="3" class="page" id="galleryPage">
-    <p>Gallery of alternative smart phones. Please select 5 to 10 phones that you most interested in.</p>
-    <div id="gallery" class="grid-container"></div>
-    <button onclick="prevPage()">Back</button>
-    <button onclick="saveSelectedPhone()">Next</button>
+  <!-- Page 3: Smartphone usage survey -->
+  <div data-page="3" id="surveyPage" class="page">
+    <h2>Smart phone usage survey</h2>
+    <p>
+      First of all, let's explore your needs for the new phone. Please answer the following questions.
+    </p>
+    <div class="question">
+      <label>Question 1: How long do you use your cell phone on average per day? </label><br>
+      <input type="radio" name="usage" value="less_than_2_hours" id="usage_less_than_2_hours">
+      <label for="usage_less_than_2_hours">Less than 2 hours</label><br>
+      <input type="radio" name="usage" value="2_4_hours" id="usage_2_4_hours">
+      <label for="usage_2_4_hours">2-4 hours</label><br>
+      <input type="radio" name="usage" value="over_4_hours" id="usage_over_4_hours">
+      <label for="usage_over_4_hours">Over 4 hours</label>
   </div>
-                                 
-  <!-- Page 4: Smartphone usage survey -->
-  <div data-page="4" id="surveyPage" class="page">
-    Smartphone usage survey
-    <button onclick="prevPage()">Back</button>
-    <button onclick="displaySubGoal(subGoalData)">Next</button>
+
+  <div class="question">
+    <label>Question 2: How long do you expect this new phone to last? </label><br>
+    <input type="radio" name="phone_lifespan" value="less_than_1_year" id="phone_lifespan_less_than_1_year">
+    <label for="phone_lifespan_less_than_1_year">Less than 1 year</label><br>
+    <input type="radio" name="phone_lifespan" value="1_2_years" id="phone_lifespan_1_2_years">
+    <label for="phone_lifespan_1_2_years">1-2 years</label><br>
+    <input type="radio" name="phone_lifespan" value="over_2_years" id="phone_lifespan_over_2_years">
+    <label for="phone_lifespan_over_2_years">Over 2 years</label>
+</div>
+
+
+    <div class="question">
+      <label >Question 3: How often do you use the following functions? ( 1:Never/seldom, 2:Sometimes, 3: often)
+      </label><br>
+      <label class="question-item-label"> Internet search</label>
+      1<input type="radio" id="1_1" name="Internet search" value="1">
+      <input type="radio" id="1_2" name="Internet search" value="2">
+      <input type="radio" id="1_3" name="Internet search" value="3">3
+      <br>
+
+      <label class="question-item-label">Phone / Video Call</label>
+      1<input type="radio" id="2_1" name=" Phone / Video Call" value="1">
+      <input type="radio" id="2_2" name=" Phone / Video Call" value="2">
+      <input type="radio" id="2_3" name=" Phone / Video Call" value="3">3
+    </div>
+
+    <div class="question">
+      <label for="q4">Question 4: Based on your phone usage, what makes a good cell phone for you? Please write down the factors that are important to you when considering buying the new one. </label><br>
+      <input type="text" style="width: 500px; height: 50px;">
+    </div>
+    <div class="button-pageTurn" >
+      <button onclick="prevPage()">Back</button>
+      <button onclick="populateGallery()">Next</button>
+    </div>
+
+  </div>
+  
+  <!-- Page 4: Gallery -->
+  <div data-page="4" class="page" id="galleryPage">
+      <h2>Available smart phones</h2>
+      <p>With the following phones available on the market, you want to find the most suitable one for you. Please <strong>select 5 to 10 phones</strong> that you are most interested in, then click next to start the purchase decision process.</p>
+      <div id="gallery" class="grid-container"></div>
+      <div class="button-pageTurn">
+        <button onclick="prevPage()">Back</button>
+        <button onclick="displaySubGoal(subGoalData)">Next</button>
+      </div>
   </div>
 
   <!-- Page 5: Select sub goals -->
   <div data-page="5" id="selectSubGoalPage" class="page" > 
-    <h2>select SubGoal</h2>
+    <h2>Select sub-goal</h2>
     <div id="subGoalContainer"></div>
-    <button onclick="prevPage()">Back</button>
-    <button onclick="showSelectedSubGoal()">Next</button>
+    <div class="button-pageTurn">
+      <button onclick="prevPage()">Back</button>
+      <button onclick="showSelectedSubGoal()">Next</button>
+    </div>
+
   </div>
 
   <!--Page 6: Select criterion -->
   <div data-page="6" id="selectCriterionPage" class="page" style="display: none;">
     <h2>select criterion</h2>
     <div id="selectedSubGoal"></div>
-    <button onclick="prevPage()">Back</button>
-    <button onclick="nextPage()">Next</button>
+    <div class="button-pageTurn">
+      <button onclick="prevPage()">Back</button>
+      <button onclick="nextPage()">Next</button>
+    </div>
   </div>
 
   <!-- Page 7: Goal Tree and operation selected criterion -->
-  <div data-page="7" id="selectCriterionPage" class="page" style="display: none;">
+  <div data-page="7" id="goalTreePage" class="page" style="display: none;">
     <h2>Goal Tree</h2>
-    <div id="selectedSubGoal"></div>
-    <button onclick="prevPage()">Back</button>
-    <button onclick="nextPage()">Next</button>
+    <div class="goal-tree">goal tree: 被选择的criterion形成的结构树显示在这里, 末节点加上红色框框</div>
+    <div class="operation-table">
+      operation table 被选择的criterion的operation显示在这个表格里.
+      <table border="1">
+        <tr>
+            <th>Criterion</th>
+            <th>Operation</th>
+        </tr>
+        <tr>
+            <td>row 1, cell 1</td>
+            <td>row 1, cell 2</td>
+        </tr>
+        <tr>
+            <td>row 2, cell 1</td>
+            <td>row 2, cell 2</td>
+        </tr>
+      </table>
+    </div>
+    <div class="button-pageTurn">
+      <button onclick="prevPage()">Back</button>
+      <button onclick="nextPage()">Next</button>
+    </div>
   </div>
 
+
+  <!-- Page 8: Weighting survey  -->
+  <div data-page="8" id="weightingPage" class="page" style="display: none;">
+    <h2>Weighting survey: 1. only selected criteria will be asked. 2. nodes with same parents will be asked in one question</h2>
+    <div >
+      <form id="questionnaire-form">
+        <div class="question">
+            <label for="q1">Question 1: How important are these main factors to you, when considering buying the new cell phone? </label><br>
+            <label for="cr1" class="question-item-label">title of cr1</label>
+            1<input type="radio" id="cr1_1" name="cr1" value="1">
+            <input type="radio" id="cr1_2" name="cr1" value="2">
+            <input type="radio" id="cr1_3" name="cr1" value="3">
+            <input type="radio" id="cr1_4" name="cr1" value="4">
+            <input type="radio" id="cr1_5" name="cr1" value="5">5
+            <br>
+
+            <label for="cr2" class="question-item-label">titel of cr2</label>
+            1<input type="radio" id="cr2_1" name="cr2" value="1">
+            <input type="radio" id="cr2_2" name="cr2" value="2">
+            <input type="radio" id="cr2_3" name="cr2" value="3">
+            <input type="radio" id="cr2_4" name="cr2" value="4">
+            <input type="radio" id="cr2_5" name="cr2" value="5">5
+        </div>
+
+        <div class="button-pageTurn">
+          <button onclick="prevPage()">Back</button>
+          <button onclick="nextPage()" type="submit">Next</button>
+        </div>
+
+        <script>
+            // to collect and print out questionnaire responses
+            document.getElementById("questionnaire-form").addEventListener("submit", function(event) {
+              event.preventDefault();
+              const cr1_response = document.querySelector('input[name="cr1"]:checked').value;
+              console.log("cr1: " + cr1_response);
+            });
+        </script>
+
+      </form>
+    </div>
+  </div>
+
+  <!-- Page 9:  -->
+  <div data-page="9" id="weightRankPage" class="page" style="display: none;"> 
+    <h2>Weighting Summarizes</h2>
+    <div>
+      <p>
+        Based on your evaluation, all the criteria are ranked and listed below. The higher the ranking, the more important is the criterion to you.
+      </p>
+          <table border="1">
+            <tr>
+                <th>Rank</th>
+                <th>Criterion</th>
+                <th>Weighting</th>
+            </tr>
+            <tr>
+                <td>row 1, cell 1</td>
+                <td>row 1, cell 2</td>
+                <td>row 1, cell 3</td>
+
+            </tr>
+            <tr>
+                <td>row 2, cell 1</td>
+                <td>row 2, cell 2</td>
+                <td>row 2, cell 3</td>
+            </tr>
+          </table>
+    </div>
+
+    <div class="button-pageTurn">
+      <button onclick="prevPage()">Back</button>
+      <button onclick="nextPage()">Next</button>
+    </div>
+
+
+  </div>  
 
 
 
