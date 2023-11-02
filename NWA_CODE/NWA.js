@@ -204,7 +204,7 @@ function showSelectedSubGoal() {
         nextPage();
         renderSelectedCriterion();
     } else {
-        alert('please select!');
+        alert('please select sub-goals');
     }
 }
 
@@ -271,7 +271,3 @@ function handleCriterionChange(event) {
         }
     }
 }
-
-
-
-// Page 7

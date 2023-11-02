@@ -40,25 +40,25 @@
     <p>
       First of all, let's explore your needs for the new phone. Please answer the following questions.
     </p>
-    <div class="question">
-      <label>Question 1: How long do you use your cell phone on average per day? </label><br>
-      <input type="radio" name="usage" value="less_than_2_hours" id="usage_less_than_2_hours">
-      <label for="usage_less_than_2_hours">Less than 2 hours</label><br>
-      <input type="radio" name="usage" value="2_4_hours" id="usage_2_4_hours">
-      <label for="usage_2_4_hours">2-4 hours</label><br>
-      <input type="radio" name="usage" value="over_4_hours" id="usage_over_4_hours">
-      <label for="usage_over_4_hours">Over 4 hours</label>
-  </div>
+      <div class="question">
+        <label>Question 1: How long do you use your cell phone on average per day? </label><br>
+        <input type="radio" name="usage" value="less_than_2_hours" id="usage_less_than_2_hours">
+        <label for="usage_less_than_2_hours">Less than 2 hours</label><br>
+        <input type="radio" name="usage" value="2_4_hours" id="usage_2_4_hours">
+        <label for="usage_2_4_hours">2-4 hours</label><br>
+        <input type="radio" name="usage" value="over_4_hours" id="usage_over_4_hours">
+        <label for="usage_over_4_hours">Over 4 hours</label>
+    </div>
 
-  <div class="question">
-    <label>Question 2: How long do you expect this new phone to last? </label><br>
-    <input type="radio" name="phone_lifespan" value="less_than_1_year" id="phone_lifespan_less_than_1_year">
-    <label for="phone_lifespan_less_than_1_year">Less than 1 year</label><br>
-    <input type="radio" name="phone_lifespan" value="1_2_years" id="phone_lifespan_1_2_years">
-    <label for="phone_lifespan_1_2_years">1-2 years</label><br>
-    <input type="radio" name="phone_lifespan" value="over_2_years" id="phone_lifespan_over_2_years">
-    <label for="phone_lifespan_over_2_years">Over 2 years</label>
-</div>
+    <div class="question">
+      <label>Question 2: How long do you expect this new phone to last? </label><br>
+      <input type="radio" name="phone_lifespan" value="less_than_1_year" id="phone_lifespan_less_than_1_year">
+      <label for="phone_lifespan_less_than_1_year">Less than 1 year</label><br>
+      <input type="radio" name="phone_lifespan" value="1_2_years" id="phone_lifespan_1_2_years">
+      <label for="phone_lifespan_1_2_years">1-2 years</label><br>
+      <input type="radio" name="phone_lifespan" value="over_2_years" id="phone_lifespan_over_2_years">
+      <label for="phone_lifespan_over_2_years">Over 2 years</label>
+    </div>
 
 
     <div class="question">
@@ -113,7 +113,7 @@
   <div data-page="6" id="selectCriterionPage" class="page" style="display: none;">
     <h2>select criterion</h2>
     <div id="selectedSubGoal"></div>
-    <div class="button-pageTurn">
+    <div class="button-pageTurn" >
       <button onclick="prevPage()">Back</button>
       <button onclick="nextPage()">Next</button>
     </div>
@@ -149,7 +149,8 @@
 
   <!-- Page 8: Weighting survey  -->
   <div data-page="8" id="weightingPage" class="page" style="display: none;">
-    <h2>Weighting survey: 1. only selected criteria will be asked. 2. nodes with same parents will be asked in one question</h2>
+    <h2>Weighting surveyPage</h2>
+    <p>1. only selected criteria will be asked. 2. nodes with same parents will be asked in one question</p>
     <div >
       <form id="questionnaire-form">
         <div class="question">
@@ -188,9 +189,9 @@
     </div>
   </div>
 
-  <!-- Page 9:  -->
+  <!-- Page 9  -->
   <div data-page="9" id="weightRankPage" class="page" style="display: none;"> 
-    <h2>Weighting Summarizes</h2>
+    <h2>Weighting Summary</h2>
     <div>
       <p>
         Based on your evaluation, all the criteria are ranked and listed below. The higher the ranking, the more important is the criterion to you.
@@ -219,12 +220,76 @@
       <button onclick="prevPage()">Back</button>
       <button onclick="nextPage()">Next</button>
     </div>
+  </div> 
+  
+  <!-- page 10 -->
+  <div data-page="10" id="productDescriptionPage" class="page" style="display: none;">
+    <h2> Product information</h2>
+    <table border="1">
+      <tr>
+          <th>Criterion</th>
+          <th>Product1</th>
+          <th>Product2</th>
+          <th>...</th>
+      </tr>
+      <tr>
+          <td>Low price</td>
+          <td>1000 Euro</td>
+          <td>800 Euro</td>
 
+      </tr>
+      <tr>
+          <td>RAM</td>
+          <td>8 GB</td>
+          <td>12 GB</td>
+      </tr>
+    </table>
 
-  </div>  
+    <div class="button-pageTurn">
+      <button onclick="prevPage()">Back</button>
+      <button onclick="nextPage()">Next</button>
+    </div>
+  </div>
 
+  <!-- Page 11: Evaluate exterior design -->
+  <div data-page="11" id="exteriorDesignPage" class="page" > 
+    <h2>Evaluate exterior design</h2>
+    <p>display pictures, user evaluate</p>
+    <div class="button-pageTurn">
+      <button onclick="prevPage()">Back</button>
+      <button onclick="nextPage()">Next</button>
+    </div>
+  </div>
 
+    <!-- Page 12: Utility value function-->
+    <div data-page="12" id="utilityFunctionPage" class="page" > 
+      <h2>Utility value function display</h2>
+      <p>Picture of utility value funciton display; ask budget questions</p>
+      <div class="button-pageTurn">
+        <button onclick="prevPage()">Back</button>
+        <button onclick="nextPage()">Next</button>
+      </div>
+    </div>
 
+    <!-- Page 13: Evaluation of alternative porducts-->
+    <div data-page="13" id="EvaluationPage" class="page" > 
+      <h2>Evaluation of alternative porducts</h2>
+      <p> results in a table</p>
+      <div class="button-pageTurn">
+        <button onclick="prevPage()">Back</button>
+        <button onclick="nextPage()">Next</button>
+      </div>
+    </div>
+
+    <!-- Page 14: Result display-->
+    <div data-page="14" id="resultDisplayPage" class="page" > 
+      <h2>result display</h2>
+      <div class="button-pageTurn">
+        <button onclick="prevPage()">Back</button>
+      </div>
+    </div>
+
+    
   <script src="NWA.js"></script>
 
 </body>
